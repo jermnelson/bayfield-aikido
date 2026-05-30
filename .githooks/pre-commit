@@ -1,0 +1,35 @@
+#!/bin/sh
+# Block commits that contain JWTs or ORCID bearer tokens.
+#
+# Enable once per clone:
+#     git config core.hooksPath .githooks
+#
+# This is the automated guarantee behind "JWT tokens are never committed":
+# even if a token is accidentally pasted into a tracked file, the commit fails.
+
+# Only scan what is actually staged (added/copied/modified), as a diff.
+staged=$(git diff --cached --diff-filter=ACM)
+[ -z "$staged" ] && exit 0
+
+# JWT: three base64url segments separated by dots, header starting `eyJ`.
+jwt='eyJ[A-Za-z0-9_-]{5,}\.[A-Za-z0-9_-]{5,}\.[A-Za-z0-9_-]{5,}'
+# ORCID access token: a v4-style UUID (bearer token shape).
+uuid='[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+
+# Look only at added lines (leading '+'), excluding diff headers ('+++').
+added=$(printf '%s\n' "$staged" | grep '^+' | grep -v '^+++')
+
+if printf '%s\n' "$added" | grep -Eq "$jwt"; then
+    echo "pre-commit: refusing commit — a JWT-like string is staged." >&2
+    echo "  Tokens must never be committed (see CLAUDE.md). Remove it and retry." >&2
+    exit 1
+fi
+
+if printf '%s\n' "$added" | grep -Eq "$uuid"; then
+    echo "pre-commit: refusing commit — a UUID/bearer-token-like string is staged." >&2
+    echo "  If this is a real ORCID access token, remove it. Otherwise, commit with" >&2
+    echo "  'git commit --no-verify' after confirming it is not a secret." >&2
+    exit 1
+fi
+
+exit 0

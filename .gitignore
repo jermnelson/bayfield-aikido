@@ -11,3 +11,9 @@ wheels/
 
 # Editor swap files
 *.swp
+
+# Secrets / tokens — must never be committed
+.env
+*.token
+*secret*
+orcid-secret*
