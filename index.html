@@ -18,8 +18,19 @@
       #kanji h3 {
         font-size: 2em;
       }
+      #about {
+        border: 3px solid #333;
+        align-self: center;
+        justify-self: center;
+      }
       #about h1 {
         font-size: 1.5rem;
+      }
+      .section-heading {
+        text-align: center;
+      }
+      #fall-classes {
+        grid-template-columns: 1fr 1fr;
       }
     </style>
   </head>
@@ -50,23 +61,25 @@
          </p>
       </article>
     </div>
-    <h2>Coming in Fall 2026</h2>
-    <article>
-      <h1>Aikido Fundamentals</h1>
-      <h2>Tuesdays, 7:30-8:30 pm</h2>
-      <ul>
-        <li>Curriculum includes basic ki techniques of <a href="https://www.aikidoshimbokukai.org/">Shimbokukai</a> inspired by
-            Internal Aikido</li>
-        <li>Gi required, hakama encouraged but not required for yudansha</li> 
-      </ul>
-    </article>
-    <article>
-      <h1>No-Gi Aikido</h1>
-      <h2>Thursdays, 7:30-8:30 pm</h2>
-      <ul>
-        <li>Internal Aikido with Weapons</li>
-        <li>Rash guard and shorts/training pants required</li>
-      </ul>
-    </article>
+    <h2 class="section-heading">Coming Fall 2026</h2>
+    <div id="fall-classes" class="grid">
+      <article>
+        <h1>Aikido Fundamentals</h1>
+        <h2>Tuesdays, 7:30-8:30 pm</h2>
+        <ul>
+          <li>Curriculum includes basic ki techniques of <a href="https://www.aikidoshimbokukai.org/">Shimbokukai</a> inspired by
+              Internal Aikido</li>
+          <li>Gi required, hakama encouraged but not required for yudansha</li>
+        </ul>
+      </article>
+      <article>
+        <h1>No-Gi Aikido</h1>
+        <h2>Thursdays, 7:30-8:30 pm</h2>
+        <ul>
+          <li>Internal Aikido with Weapons</li>
+          <li>Rash guard and shorts/training pants required</li>
+        </ul>
+      </article>
+    </div>
   </body>
  </html>
