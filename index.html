@@ -11,6 +11,7 @@
     <style>
       body {
         font-family: "Zen Kaku Gothic New", "Helvetica Neue", Arial, sans-serif;
+        overflow-x: hidden;
       }
       .grid {
         display: grid;
@@ -20,6 +21,8 @@
       }
       #kanji {
         border: 3px solid #333;
+        border-radius: 12px;
+        background-color: #d8c9a3; /* tatami sand, matching the about heading */
       }
       #kanji h3 {
         font-size: 2em;
@@ -36,8 +39,15 @@
         color: #333;
         margin: 0; /* flush with the article border */
       }
+      #about p {
+        padding: 0.5em;
+      }
       .section-heading {
         text-align: center;
+        box-sizing: border-box;
+        padding: 0.5em;
+        border: 3px solid #20305c; /* indigo heri (cloth edging) */
+        background-color: #d8c9a3; /* sand tatami field, matching kanji box */
       }
       #fall-classes {
         grid-template-columns: 1fr 1fr;
