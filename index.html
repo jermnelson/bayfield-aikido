@@ -54,6 +54,29 @@
         border: 3px solid #20305c; /* indigo heri (cloth edging) */
         background-color: #d8c9a3; /* sand tatami field, matching kanji box */
       }
+      #orcid-auth {
+        text-align: right;
+        margin: 0.5em 0;
+        min-height: 2em;
+      }
+      #orcid-login,
+      #orcid-logout {
+        font: inherit;
+        cursor: pointer;
+        color: #fff;
+        background-color: #20305c; /* indigo, matching the heri accent */
+        border: none;
+        border-radius: 8px;
+        padding: 0.4em 0.8em;
+      }
+      #orcid-logout {
+        margin-left: 0.6em;
+        padding: 0.15em 0.5em;
+        font-size: 0.85em;
+      }
+      #orcid-badge {
+        color: #20305c;
+      }
       #fall-classes {
         grid-template-columns: 1fr 1fr;
       }
@@ -61,6 +84,10 @@
   </head>
   <body>
     <h1>合気道 Aikido Classes at <a href="https://elevatedmartialarts.com/">Elevated Martial Arts</a></h1>
+    <div id="orcid-auth">
+      <button id="orcid-login" type="button">Sign in with ORCID</button>
+      <span id="orcid-badge" hidden></span>
+    </div>
     <div class="grid">
       <article id="kanji">
         <h3>合</h3>
@@ -111,6 +138,7 @@
         </ul>
       </article>
     </div>
-    <footer>All content &copy; 02026 by <a href="https://orcid.org/0000-0002-7543-3893">Jeremy Nelson</a></footer> 
+    <footer>All content &copy; 02026 by <a href="https://orcid.org/0000-0002-7543-3893">Jeremy Nelson</a></footer>
+    <script type="py" src="./auth.py" config="./pyscript.toml"></script>
   </body>
  </html>

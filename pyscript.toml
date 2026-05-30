@@ -1,0 +1,8 @@
+# PyScript runtime config for the ORCID sign-in module.
+# pyjwt + cryptography provide RS256 JWT verification against ORCID's JWKS.
+packages = ["pyjwt", "cryptography"]
+
+# Make the config module available in the in-browser virtual filesystem so
+# `import orcid_config` works inside auth.py.
+[files]
+"./orcid_config.py" = "./orcid_config.py"
