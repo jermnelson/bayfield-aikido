@@ -27,10 +27,15 @@
       #kanji h3 {
         font-size: 2em;
       }
+      #about-col {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
       #about {
         border: 3px solid #333;
-        align-self: center;
-        justify-self: center;
       }
       #about h1 {
         font-size: 1.5rem;
@@ -70,16 +75,21 @@
           <li>Gi required, hakami required for yudansha</li>
           <li>Beginners welcome!</li>
           <li>$15 drop-in fee; free for BJJ members of Elevated Martial Arts</li>
+          <li>No classes on July 4th or July 24th (<a href="https://www.boulderaikikai.org/boulder-aikido-summer-camp">Boulder Summer Camp</a>)
         </ul>
       </article>
-      <article id="about">
-         <h1>Taught by Jeremy Nelson</h1>
-         <p>
-           29 years practicing Aikido, currently ranked
-           Sandan (3rd degree Black Belt), student of
-           <a href="https://www.boulderaikikai.org/hiroshi-ikeda-seminars">Hiroshi Ikeda Shihan</a>, Boulder Aikikai.
-         </p>
-      </article>
+      <div id="about-col">
+        <img id="qr" src="qr.svg" width="148" height="148"
+             alt="QR code linking to bayfield-aikido site">
+        <article id="about">
+           <h1>Taught by Jeremy Nelson</h1>
+           <p>
+             29 years practicing Aikido, currently ranked
+             Sandan (3rd degree Black Belt), student of
+             <a href="https://www.boulderaikikai.org/hiroshi-ikeda-seminars">Hiroshi Ikeda Shihan</a>, Boulder Aikikai.
+           </p>
+        </article>
+      </div>
     </div>
     <h2 class="section-heading">Coming Fall 2026</h2>
     <div id="fall-classes" class="grid">
@@ -101,5 +111,6 @@
         </ul>
       </article>
     </div>
+    <footer>All content &copy; 02026 by <a href="https://orcid.org/0000-0002-7543-3893">Jeremy Nelson</a></footer> 
   </body>
  </html>
