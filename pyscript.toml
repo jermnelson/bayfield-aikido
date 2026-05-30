@@ -1,0 +1,10 @@
+# PyScript runtime config for the ORCID sign-in module.
+# pyjwt + cryptography provide RS256 JWT verification against ORCID's JWKS.
+# ssl is unvendored in Pyodide but pyjwt's __init__ imports it (via its
+# unused PyJWKClient), so it must be loaded explicitly.
+packages = ["pyjwt", "cryptography", "ssl"]
+
+# Make the config module available in the in-browser virtual filesystem so
+# `import orcid_config` works inside auth.py.
+[files]
+"./orcid_config.py" = "./orcid_config.py"
