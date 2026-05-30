@@ -19,10 +19,27 @@
         gap: 1rem;
         align-items: start;
       }
-      #kanji {
+      .kanji,
+      .kanji-vertical {
         border: 3px solid #333;
         border-radius: 12px;
         background-color: #d8c9a3; /* tatami sand, matching the about heading */
+      }
+      .kanji-vertical {
+        flex: 0 0 auto; /* keep natural width; height stretches to the article */
+        margin: 0;
+        /* stack characters top-to-bottom and space them evenly over the
+           band's full height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.2em 0.1em;
+      }
+      #fall-classes article {
+        display: flex;
+        align-items: stretch; /* kanji band matches the article's full height */
+        gap: 0.6em;
       }
       #kanji h3 {
         font-size: 2em;
@@ -89,7 +106,7 @@
       <span id="orcid-badge" hidden></span>
     </div>
     <div class="grid">
-      <article id="kanji">
+      <article id="kanji" class="kanji">
         <h3>合</h3>
         <h3>気</h3>
         <h3>道</h3>
@@ -121,24 +138,32 @@
     <h2 class="section-heading">Coming Fall 2026</h2>
     <div id="fall-classes" class="grid">
       <article>
-        <h1>Aikido Fundamentals</h1>
-        <h2>Tuesdays, 7:30-8:30 pm</h2>
-        <ul>
-          <li>Curriculum includes basic ki techniques of <a href="https://www.aikidoshimbokukai.org/">Shimbokukai</a> inspired by
-              Internal Aikido</li>
-          <li>Gi required, hakama encouraged but not required for yudansha</li>
-        </ul>
+        <h1 class="kanji-vertical" data-kanji="合気道基本"></h1>
+        <div class="class-body">
+          <h1>Aikido Fundamentals</h1>
+          <h2>Tuesdays, 7:30-8:30 pm</h2>
+          <ul>
+            <li>Curriculum includes basic ki techniques of <a href="https://www.aikidoshimbokukai.org/">Shimbokukai</a> inspired by
+                Internal Aikido</li>
+            <li>Gi required, hakama encouraged but not required for yudansha</li>
+          </ul>
+        </div>
       </article>
       <article>
-        <h1>No-Gi Aikido</h1>
-        <h2>Thursdays, 7:30-8:30 pm</h2>
-        <ul>
-          <li>Internal Aikido with Weapons</li>
-          <li>Rash guard and shorts/training pants required</li>
-        </ul>
+        <h1 class="kanji-vertical" data-kanji="ノーギ合気道クラス"></h1>
+        <div class="class-body">
+          <h1>No-Gi Aikido</h1>
+          <h2>Thursdays, 7:30-8:30 pm</h2>
+          <ul>
+            <li>Internal Aikido with Weapons</li>
+            <li>Rash guard and shorts/training pants required</li>
+          </ul>
+        </div>
       </article>
     </div>
     <footer>All content &copy; 02026 by <a href="https://orcid.org/0000-0002-7543-3893">Jeremy Nelson</a></footer>
+    <template id="kanji-char"><span></span></template>
+    <script type="py" src="./kanji.py"></script>
     <script type="py" src="./auth.py" config="./pyscript.toml"></script>
   </body>
  </html>
