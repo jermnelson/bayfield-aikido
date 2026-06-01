@@ -17,3 +17,6 @@ wheels/
 *.token
 *secret*
 orcid-secret*
+
+# Local-only session invoice (do not commit)
+SESSION-INVOICE.md
